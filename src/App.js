@@ -1,25 +1,20 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Container, Navbar } from "react-bootstrap";
+import { BookProvider } from "./contexts/BookContext";
+import SearchForm from "./components/SearchForm";
+import BookList from "./components/BookList";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> primeiro commit.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BookProvider>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand>📚 Minha Biblioteca</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Container className="py-4">
+        <SearchForm />
+        <BookList />
+      </Container>
+    </BookProvider>
   );
 }
-
-export default App;
